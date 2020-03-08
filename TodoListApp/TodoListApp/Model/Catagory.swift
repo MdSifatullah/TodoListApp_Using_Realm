@@ -9,9 +9,10 @@
 import Foundation
 import RealmSwift
 
-class Catagory {
+class Catagory : Object {
     @objc dynamic var id = Int()
     @objc dynamic var name = String()
     @objc dynamic var icon = "folder"
-   // let task = List<Task>()
+    
+    //let task = List<Task>()
 }
