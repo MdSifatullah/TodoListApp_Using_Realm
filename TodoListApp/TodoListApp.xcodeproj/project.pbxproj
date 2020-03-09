@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B18D04C241611860069EF7C /* TasksListsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B18D04B241611860069EF7C /* TasksListsTableViewController.swift */; };
+		0B18D04E24163CE40069EF7C /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B18D04D24163CE40069EF7C /* AddTaskViewController.swift */; };
 		0B4251EE2414BE47002A8667 /* AddCatagoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4251ED2414BE47002A8667 /* AddCatagoryTableViewController.swift */; };
 		0B4251F02414C4FE002A8667 /* AddIconTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4251EF2414C4FE002A8667 /* AddIconTableViewController.swift */; };
 		0B9F6666240F87CE004A75E6 /* CatagoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9F6665240F87CE004A75E6 /* CatagoryTableViewController.swift */; };
@@ -24,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		056EAD773DF508A0462496DD /* Pods-TodoListApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoListApp.debug.xcconfig"; path = "Target Support Files/Pods-TodoListApp/Pods-TodoListApp.debug.xcconfig"; sourceTree = "<group>"; };
+		0B18D04B241611860069EF7C /* TasksListsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListsTableViewController.swift; sourceTree = "<group>"; };
+		0B18D04D24163CE40069EF7C /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		0B4251ED2414BE47002A8667 /* AddCatagoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCatagoryTableViewController.swift; sourceTree = "<group>"; };
 		0B4251EF2414C4FE002A8667 /* AddIconTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIconTableViewController.swift; sourceTree = "<group>"; };
 		0B9F6665240F87CE004A75E6 /* CatagoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatagoryTableViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 				0B9F6665240F87CE004A75E6 /* CatagoryTableViewController.swift */,
 				0B4251ED2414BE47002A8667 /* AddCatagoryTableViewController.swift */,
 				0B4251EF2414C4FE002A8667 /* AddIconTableViewController.swift */,
+				0B18D04B241611860069EF7C /* TasksListsTableViewController.swift */,
+				0B18D04D24163CE40069EF7C /* AddTaskViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -256,11 +262,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B18D04C241611860069EF7C /* TasksListsTableViewController.swift in Sources */,
 				0BF02087240F810B00CD26C2 /* AppDelegate.swift in Sources */,
 				0BF02089240F810B00CD26C2 /* SceneDelegate.swift in Sources */,
 				0BF02091240F810B00CD26C2 /* TodoListApp.xcdatamodeld in Sources */,
 				0B9F6670240F8B1C004A75E6 /* CustomTableViewCell.swift in Sources */,
 				0B4251F02414C4FE002A8667 /* AddIconTableViewController.swift in Sources */,
+				0B18D04E24163CE40069EF7C /* AddTaskViewController.swift in Sources */,
 				0B4251EE2414BE47002A8667 /* AddCatagoryTableViewController.swift in Sources */,
 				0B9F6666240F87CE004A75E6 /* CatagoryTableViewController.swift in Sources */,
 				0B9F666D240F8A49004A75E6 /* Task.swift in Sources */,

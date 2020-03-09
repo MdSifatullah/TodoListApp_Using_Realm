@@ -9,9 +9,9 @@
 import Foundation
 import RealmSwift
 
-class Task {
+class Task : Object{
     @objc dynamic var id = Int()
     @objc dynamic var name = String()
     @objc dynamic var isDone = Bool()
-    //let catagory =
+   // let catagory = LinkingObjects(fromType: Catagory.self, property: "tasks")
 }
