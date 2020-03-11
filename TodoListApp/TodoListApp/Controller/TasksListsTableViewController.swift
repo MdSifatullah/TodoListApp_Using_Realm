@@ -18,30 +18,30 @@ class TasksListsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
-       // self.navigationItem.title = catagory?.name
+        self.navigationItem.title = catagory?.name
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        if let all = catagory?.tasks{
-//            tasks = all
-//        }
-//        self.tableView.reloadData()
-//    }
-//    
+    override func viewWillAppear(_ animated: Bool) {
+        if let all = catagory?.tasks{
+            tasks = all
+        }
+        self.tableView.reloadData()
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 5 //tasks?.count ?? 0
+        return tasks?.count ?? 0
     }
 //    
 //    
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath)
-//        
-//        cell.textLabel?.text = tasks![indexPath.row].name
-//        cell.accessoryType = tasks![indexPath.row].isDone == true ? .checkmark : .none
-//        
-//        return cell
-//    }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath)
+        
+        cell.textLabel?.text = tasks![indexPath.row].name
+        cell.accessoryType = tasks![indexPath.row].isDone == true ? .checkmark : .none
+        
+        return cell
+    }
     
     
     @IBAction func addTaskBtn(_ sender: Any) {

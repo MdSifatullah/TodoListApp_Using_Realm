@@ -13,6 +13,11 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     var catagory : Catagory?
     var reminder = false
     var date = Date()
+    @IBOutlet weak var newTaskTextField: UITextField!
+    @IBOutlet weak var reminderSwitch: UISwitch!
+    @IBOutlet weak var dateShowLabel: UILabel!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var datePickerView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
 

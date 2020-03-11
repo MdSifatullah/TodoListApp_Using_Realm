@@ -35,7 +35,7 @@ class CatagoryTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.imageView?.frame = CGRect(x: 8, y: 8, width: 36, height: 36)
         cell.imageView?.image = UIImage(named: "\(catagories![indexPath.row].icon)")
-        cell.textLabel?.text = "\(catagories![indexPath.row].name)"
+        cell.textLabel?.text = "\(catagories![indexPath.row].name) [\(catagories![indexPath.row].tasks.count)]"
         
         return cell
     }
@@ -58,14 +58,18 @@ class CatagoryTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.index = nil
         self.index = indexPath.row
+       // print(index)
         performSegue(withIdentifier: "CatagoryToTaskLists", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "CatagoryToTaskLists"{
-            let taskVC = segue.destination as! TasksListsTableViewController
-            taskVC.catagory = catagories![index!]
+        if let selectedIndex = index {
+            if segue.identifier == "CatagoryToTaskLists"{
+                let taskVC = segue.destination as! TasksListsTableViewController
+                taskVC.catagory = catagories![selectedIndex]
+            }
         }
     }
     

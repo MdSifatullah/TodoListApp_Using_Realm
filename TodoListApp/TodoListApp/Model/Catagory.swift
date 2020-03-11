@@ -14,5 +14,5 @@ class Catagory : Object {
     @objc dynamic var name = String()
     @objc dynamic var icon = "folder"
     
-   // let tasks = List<Task>()
+    let tasks = List<Task>()
 }
