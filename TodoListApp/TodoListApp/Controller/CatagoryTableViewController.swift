@@ -41,36 +41,40 @@ class CatagoryTableViewController: UITableViewController {
     }
     
     // Override to support editing the table view.
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            do {
-//                try realm.write {
-//                    let tasks = catagories![indexPath.row].tasks
-//                    realm.delete(tasks)
-//                    realm.delete(catagories![indexPath.row])
-//                    self.viewWillAppear(true)
-//                }
-//            } catch  {
-//                print("Error deleting Catagory")
-//            }
-//        }
-//    }
+    //    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    //        if editingStyle == .delete {
+    //            do {
+    //                try realm.write {
+    //                    let tasks = catagories![indexPath.row].tasks
+    //                    realm.delete(tasks)
+    //                    realm.delete(catagories![indexPath.row])
+    //                    self.viewWillAppear(true)
+    //                }
+    //            } catch  {
+    //                print("Error deleting Catagory")
+    //            }
+    //        }
+    //    }
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.index = nil
         self.index = indexPath.row
-       // print(index)
+        
         performSegue(withIdentifier: "CatagoryToTaskLists", sender: self)
+        print("hi")
+        
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let selectedIndex = index {
+       
             if segue.identifier == "CatagoryToTaskLists"{
                 let taskVC = segue.destination as! TasksListsTableViewController
-                taskVC.catagory = catagories![selectedIndex]
+                taskVC.catagory = catagories![index ?? 1]
+                print("selectedIndex)")
             }
-        }
+        
     }
     
     

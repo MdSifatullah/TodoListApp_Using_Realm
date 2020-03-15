@@ -32,8 +32,8 @@ class TasksListsTableViewController: UITableViewController {
         
         return tasks?.count ?? 0
     }
-//    
-//    
+    //
+    //
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath)
         
@@ -62,18 +62,18 @@ class TasksListsTableViewController: UITableViewController {
     //                print("Error")
     //            }
     //        }
-//}
-
-
- // MARK: - Navigation
- 
-// // In a storyboard-based application, you will often want to do a little preparation before navigation
-// override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    if segue.identifier == "newTaskAdd" {
-//        let vc = segue.destination as! AddTaskViewController
-//        vc.catagory = self.catagory
-//    }
-// }
-
-
+    //}
+    
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "newTaskAdd" {
+            let vc = segue.destination as! AddTaskViewController
+            vc.catagory = self.catagory
+        }
+    }
+    
+    
 }
