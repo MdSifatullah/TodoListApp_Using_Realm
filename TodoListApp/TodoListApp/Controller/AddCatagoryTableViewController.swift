@@ -78,7 +78,7 @@ class AddCatagoryTableViewController: UITableViewController, UITextFieldDelegate
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 2{
-            performSegue(withIdentifier: "ConcatIcon", sender: self)
+            performSegue(withIdentifier: "ConcatIcon" , sender: self)
         }
     }
     

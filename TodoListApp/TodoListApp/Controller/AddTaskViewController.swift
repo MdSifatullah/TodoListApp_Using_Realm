@@ -12,7 +12,7 @@ import UserNotifications
 
 class AddTaskViewController: UIViewController, UITextFieldDelegate {
     
-    let relam = try! Realm()
+    let realm = try! Realm()
     var catagory : Catagory?
     var reminder = false
     var date = Date()
@@ -29,7 +29,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         newTaskTextField.becomeFirstResponder()
         // Do any additional setup after loading the view.
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yy-mm-dd hh:mm"
+        dateFormatter.dateFormat = "yy-MM-dd hh:mm"
         reminderSwitch.isOn = false
         datePickerView.isHidden = true
         dateShowLabel.text = dateFormatter.string(from: date)
@@ -56,6 +56,24 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func doneOnClickBtn(_ sender: Any) {
         let id = IncrementID()
+        ScheduleNitification(id: id)
+        
+        
+        do{
+            try realm.write{
+                if let subCatagory = catagory{
+                    let task = Task()
+                    task.name = newTaskTextField.text!
+                    task.id = id
+                    subCatagory.tasks.append(task)
+                    print("Success")
+                }
+            }
+        }catch{
+            print("error")
+        }
+        
+        navigationController?.popViewController(animated: true)
         
         
     }
@@ -72,13 +90,33 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func changeDatePicker(_ sender: UIDatePicker) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yy-mm-dd hh:mm"
+        dateFormatter.dateFormat = "yy-MM-dd hh:mm"
         dateShowLabel.text = dateFormatter.string(from: date)
         date = sender.date
     }
     
+    func ScheduleNitification(id: Int){
+        if reminder && date > Date(){
+            let contex = UNMutableNotificationContent()
+            contex.title = "Hey!! You have a task to Complete"
+            contex.body = newTaskTextField.text!
+            contex.sound = UNNotificationSound.default
+            
+            let calender = Calendar(identifier: .gregorian)
+            let components = calender.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+            
+            let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+            let request = UNNotificationRequest(identifier: "task-\(id)", content: contex, trigger: trigger)
+            
+            let center = UNUserNotificationCenter.current()
+            center.add(request)
+            
+        }
+        
+    }
+    
     func IncrementID() -> Int{
-        let id = (relam.objects(Task.self).max(ofProperty: "id") as Int? ?? 0) + 1
+        let id = (realm.objects(Task.self).max(ofProperty: "id") as Int? ?? 0) + 1
         return id
     }
     /*

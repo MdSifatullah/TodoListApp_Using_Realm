@@ -62,18 +62,17 @@ class CatagoryTableViewController: UITableViewController {
         self.index = indexPath.row
         
         performSegue(withIdentifier: "CatagoryToTaskLists", sender: self)
-        print("hi")
+        
         
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
-            if segue.identifier == "CatagoryToTaskLists"{
-                let taskVC = segue.destination as! TasksListsTableViewController
-                taskVC.catagory = catagories![index ?? 1]
-                print("selectedIndex)")
-            }
+        
+        if segue.identifier == "CatagoryToTaskLists"{
+            let taskVC = segue.destination as! TasksListsTableViewController
+            taskVC.catagory = catagories![index ?? 1]
+        }
         
     }
     
